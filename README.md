@@ -18,6 +18,8 @@ Microsite estático para validar una oportunidad SEO y de monetización en Espa�
 - formularios ligeros
 - copia al portapapeles
 - impresión a PDF
+- metadatos Open Graph y Twitter
+- schema `HowTo` y `FAQPage`
 - `robots.txt`
 - `sitemap.xml`
 - `404.html`
@@ -53,6 +55,7 @@ Microsite estático para validar una oportunidad SEO y de monetización en Espa�
 - reemplazar `example.com`
 - revisar el copy legal final
 - añadir Analytics y Search Console
+- añadir el ID real de analytics cuando elijas la herramienta
 - añadir schema FAQ/HowTo por página
 - crear las siguientes páginas long-tail
 
