@@ -64,8 +64,11 @@
           <h1 id="tool-title"></h1>
           <p id="tool-description" class="lead"></p>
           <div id="tool-summary" class="summary"></div>
+          <div id="tool-assurance" class="assurance-strip"></div>
         </div>
+        <div id="tool-steps" class="mini-grid"></div>
         <form id="letter-form" class="letter-form"></form>
+        <p id="form-footnote" class="form-footnote"></p>
         <div class="actions">
           <button id="generate-btn" class="primary" type="button">Generar carta</button>
           <button id="copy-btn" class="secondary" type="button">Copiar texto</button>
@@ -77,6 +80,10 @@
         <p class="eyebrow">Vista previa</p>
         <h2 id="page-meta-title"></h2>
         <p id="page-meta-description" class="preview-meta"></p>
+        <div class="preview-banner">
+          <span>Base editable</span>
+          <span>No se guarda automáticamente</span>
+        </div>
         <pre id="preview-document" class="preview-document"></pre>
       </section>
     </div>
@@ -90,6 +97,12 @@
     <section class="section disclaimer">
       <p class="eyebrow">Aviso</p>
       <p>Esta herramienta ofrece un modelo orientativo e informativo. No sustituye el asesoramiento legal profesional ni revisa las particularidades de tu contrato, convenio o situación laboral concreta.</p>
+    </section>
+
+    <section class="section card">
+      <p class="eyebrow">Antes de enviarla</p>
+      <h2>Lo que conviene revisar</h2>
+      <div id="tool-review-points" class="review-points"></div>
     </section>
 
     <section class="section">

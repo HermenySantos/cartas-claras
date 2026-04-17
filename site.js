@@ -3,6 +3,18 @@ const pageConfigs = {
     title: "Generador de carta de baja voluntaria",
     description: "Crea una carta de baja voluntaria en España con texto formal, lista para copiar o imprimir en PDF.",
     summary: ["Sin registro", "Formato claro", "Pensado para España"],
+    assurances: ["No guardamos el contenido en esta versión", "Pensado para revisión rápida antes de enviar", "Base orientativa para España"],
+    steps: [
+      ["1", "Rellena tus datos esenciales"],
+      ["2", "Revisa el texto y ajusta un matiz si hace falta"],
+      ["3", "Copia o imprime la carta y guarda prueba de entrega"]
+    ],
+    formFootnote: "Consejo: si no recuerdas algún dato exacto, puedes dejar una base y editar el texto final antes de enviarlo.",
+    reviewPoints: [
+      "Preaviso aplicable según convenio o contrato.",
+      "Último día de trabajo correcto.",
+      "Método de entrega con prueba de recepción."
+    ],
     fields: [
       ["fullName", "Nombre y apellidos"],
       ["address", "Dirección completa", "full"],
@@ -59,6 +71,18 @@ const pageConfigs = {
     title: "Generador de baja de gimnasio",
     description: "Genera un texto para solicitar la baja de una membresía y pedir el cese de futuros cargos.",
     summary: ["Consumo", "Copia o imprime", "Rápido de rellenar"],
+    assurances: ["Sin registro obligatorio", "Texto directo para pedir cese de cargos", "Útil como base antes de enviar"],
+    steps: [
+      ["1", "Introduce tus datos y los del gimnasio"],
+      ["2", "Fija la fecha efectiva de baja"],
+      ["3", "Guarda confirmación escrita o justificante de envío"]
+    ],
+    formFootnote: "Si tu caso depende de una lesión o traslado, puedes usar el campo de motivo para dejarlo por escrito.",
+    reviewPoints: [
+      "Permanencia o penalización en el contrato.",
+      "Fecha efectiva de baja y preaviso.",
+      "Solicitud expresa de cese de nuevos cobros."
+    ],
     fields: [
       ["fullName", "Nombre y apellidos"],
       ["dni", "DNI/NIE"],
@@ -111,6 +135,18 @@ const pageConfigs = {
     title: "Generador de desistimiento de compra online",
     description: "Texto base para ejercer el derecho de desistimiento en compras online dentro del plazo aplicable.",
     summary: ["Ecommerce", "Base imprimible", "Enfoque práctico"],
+    assurances: ["Base rápida para compras online", "Enfoque práctico y sin cuenta", "Pensado para revisión antes de enviar"],
+    steps: [
+      ["1", "Añade los datos del pedido"],
+      ["2", "Comprueba que sigues dentro del plazo"],
+      ["3", "Envía el texto y conserva la prueba"]
+    ],
+    formFootnote: "Incluye número de pedido y fechas correctas: son los datos que más ayudan a que la solicitud sea entendible.",
+    reviewPoints: [
+      "Plazo aplicable a tu compra.",
+      "Número de pedido y fechas correctas.",
+      "Canal de envío que deje constancia."
+    ],
     fields: [
       ["fullName", "Nombre y apellidos"],
       ["address", "Dirección completa", "full"],
@@ -165,6 +201,18 @@ const pageConfigs = {
     title: "Generador de reclamación a operadora",
     description: "Modelo base para reclamar facturación, permanencia, incidencia técnica o atención al cliente.",
     summary: ["Telecom", "Alta intención", "Texto formal"],
+    assurances: ["Te ayuda a pedir una solución concreta", "Útil para facturación, permanencia o incidencias", "Base clara y editable"],
+    steps: [
+      ["1", "Resume el problema con datos verificables"],
+      ["2", "Indica qué solución esperas"],
+      ["3", "Guarda el escrito y la respuesta de la operadora"]
+    ],
+    formFootnote: "Funciona mejor si escribes hechos concretos: fecha, cobro, línea afectada y la solución exacta que pides.",
+    reviewPoints: [
+      "Número de cliente y línea afectada.",
+      "Hechos descritos con fechas o importes.",
+      "Solución concreta y proporcionada."
+    ],
     fields: [
       ["fullName", "Nombre y apellidos"],
       ["dni", "DNI/NIE"],
@@ -216,6 +264,18 @@ const pageConfigs = {
     title: "Generador de devolución de cargo SEPA",
     description: "Solicitud para pedir al banco la devolución de un recibo o cargo domiciliado no deseado.",
     summary: ["Banca", "Texto simple", "Preparado para imprimir"],
+    assurances: ["Base sencilla para hablar con el banco", "Datos mínimos y texto claro", "Útil para ordenar la solicitud"],
+    steps: [
+      ["1", "Identifica bien el cargo"],
+      ["2", "Explica por qué pides la devolución"],
+      ["3", "Guarda la solicitud y cualquier respuesta del banco"]
+    ],
+    formFootnote: "Si tienes el concepto exacto del cargo o referencia del recibo, conviene añadirlo antes de enviarlo.",
+    reviewPoints: [
+      "Importe y fecha del cargo correctos.",
+      "Empresa emisora identificada.",
+      "Motivo breve pero concreto."
+    ],
     fields: [
       ["fullName", "Nombre y apellidos"],
       ["address", "Dirección completa", "full"],
@@ -277,6 +337,10 @@ function renderToolPage(pageId) {
   const faq = document.getElementById("faq-list");
   const pageMetaTitle = document.getElementById("page-meta-title");
   const pageMetaDesc = document.getElementById("page-meta-description");
+  const assurance = document.getElementById("tool-assurance");
+  const steps = document.getElementById("tool-steps");
+  const footnote = document.getElementById("form-footnote");
+  const reviewPoints = document.getElementById("tool-review-points");
 
   if (pageMetaTitle) {
     pageMetaTitle.textContent = config.title;
@@ -288,6 +352,20 @@ function renderToolPage(pageId) {
   title.textContent = config.title;
   description.textContent = config.description;
   summary.innerHTML = config.summary.map((item) => `<span class="mini-badge">${item}</span>`).join("");
+  if (assurance) {
+    assurance.innerHTML = config.assurances.map((item) => `<span>${item}</span>`).join("");
+  }
+  if (steps) {
+    steps.innerHTML = config.steps.map(([num, text]) => `
+      <article class="mini-card">
+        <span class="step-number">${num}</span>
+        <p>${text}</p>
+      </article>
+    `).join("");
+  }
+  if (footnote) {
+    footnote.textContent = config.formFootnote;
+  }
 
   form.innerHTML = "";
   config.fields.forEach(([key, label, span, kind]) => {
@@ -299,12 +377,15 @@ function renderToolPage(pageId) {
     const input = kind === "textarea" ? document.createElement("textarea") : document.createElement("input");
     input.id = key;
     input.name = key;
-    input.placeholder = label;
+    input.placeholder = `Ej.: ${label}`;
     wrapper.append(labelEl, input);
     form.appendChild(wrapper);
   });
 
   checklist.innerHTML = config.checklist.map((item) => `<li>${item}</li>`).join("");
+  if (reviewPoints) {
+    reviewPoints.innerHTML = config.reviewPoints.map((item) => `<div class="review-chip">${item}</div>`).join("");
+  }
   faq.innerHTML = config.faq.map(([q, a]) => `
     <article class="faq-item">
       <h3>${q}</h3>
@@ -323,8 +404,10 @@ function renderToolPage(pageId) {
     const button = document.getElementById("copy-btn");
     const original = button.textContent;
     button.textContent = "Copiado";
+    button.classList.add("is-success");
     setTimeout(() => {
       button.textContent = original;
+      button.classList.remove("is-success");
     }, 1200);
   });
   document.getElementById("print-btn").addEventListener("click", () => window.print());
