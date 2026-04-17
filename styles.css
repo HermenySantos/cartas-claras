@@ -1,0 +1,399 @@
+:root {
+  --bg: #f3ede3;
+  --panel: rgba(255, 250, 242, 0.9);
+  --ink: #201a16;
+  --muted: #655b52;
+  --line: #ddcfbe;
+  --accent: #b4492f;
+  --accent-dark: #7d2d18;
+  --glow: #efc26f;
+  --shadow: 0 22px 55px rgba(72, 45, 26, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(239, 194, 111, 0.42), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(180, 73, 47, 0.08), transparent 22%),
+    linear-gradient(180deg, #f9f3eb 0%, var(--bg) 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 34px 18px 72px;
+}
+
+.hero,
+.tool-layout,
+.grid,
+.faq-list,
+.howto,
+.benefits {
+  display: grid;
+  gap: 20px;
+}
+
+.hero {
+  grid-template-columns: 1.9fr 1fr;
+  align-items: stretch;
+}
+
+.hero-copy,
+.hero-card,
+.card,
+.tool-panel,
+.preview-panel,
+.disclaimer,
+.breadcrumbs {
+  background: var(--panel);
+  border: 1px solid rgba(221, 207, 190, 0.9);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+}
+
+.hero-copy,
+.hero-card,
+.tool-panel,
+.preview-panel,
+.card,
+.disclaimer,
+.breadcrumbs {
+  padding: 24px;
+}
+
+.eyebrow,
+.card-label {
+  margin: 0;
+  color: var(--accent-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 8px 0 0;
+  line-height: 1.06;
+}
+
+h1,
+.preview-document h2 {
+  font-family: "Source Serif 4", serif;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  max-width: 11ch;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 2.2vw, 2.4rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+.lead,
+.muted,
+.card p,
+.disclaimer p,
+.faq-item p,
+.howto li,
+.benefits li,
+.preview-meta,
+.breadcrumbs {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero-points span,
+.tag,
+.mini-badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.section-head {
+  margin-bottom: 16px;
+}
+
+.grid.cards {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.columns-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.columns-3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.link-card {
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.link-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 18px 30px rgba(180, 73, 47, 0.14);
+}
+
+.spotlight {
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(221, 207, 190, 0.9);
+  background: linear-gradient(180deg, rgba(255, 250, 242, 0.92), rgba(247, 238, 225, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.breadcrumbs {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.tool-layout {
+  grid-template-columns: minmax(320px, 0.95fr) minmax(320px, 1.05fr);
+}
+
+.tool-panel,
+.preview-panel {
+  min-height: 100%;
+}
+
+.tool-hero {
+  margin-bottom: 18px;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.letter-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #fffdfa;
+  font: inherit;
+  color: var(--ink);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+button,
+.primary,
+.secondary {
+  appearance: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+.secondary {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.preview-meta {
+  margin-top: 12px;
+}
+
+.preview-document {
+  margin-top: 18px;
+  min-height: 520px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fffdfa;
+  padding: 26px;
+  white-space: pre-wrap;
+  line-height: 1.7;
+  font-family: "Source Serif 4", serif;
+}
+
+.checklist,
+.benefits,
+.howto,
+.faq-list {
+  margin-top: 18px;
+}
+
+.checklist li,
+.benefits li,
+.howto li {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.faq-list {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.faq-item {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.site-footer {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .tool-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-inline: 14px;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .tool-panel,
+  .preview-panel,
+  .card,
+  .disclaimer,
+  .breadcrumbs,
+  .spotlight {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .letter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .breadcrumbs,
+  .tool-panel,
+  .disclaimer,
+  .section,
+  .site-footer {
+    display: none;
+  }
+
+  .page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .tool-layout {
+    display: block;
+  }
+
+  .preview-panel {
+    border: none;
+    box-shadow: none;
+    background: #fff;
+    padding: 0;
+  }
+
+  .preview-document {
+    border: none;
+    padding: 0;
+    min-height: auto;
+  }
+}
